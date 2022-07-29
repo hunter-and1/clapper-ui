@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+  	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+	<style type="text/css">
+	#nx-loading-clappr-place{
+		position: absolute;
+
+		width: 100%;
+
+		height: 100%;
+	}
+	.nx-loading-clappr{
+		width: 80px;
+		height: 22px;
+		overflow: auto;
+		margin: auto;
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+	
+	}
+	.nx-loading-p{
+		width: 22px;
+
+		height: 22px;
+
+		background: #fff;
+		border-radius: 22px;
+		
+			
+	}
+.nx-loading-fix{width: 22px;height: 22px;display: inline-block;margin-right: -2px;		}
+		#nx-player{
+			background: #000;
+			height: 450px;
+			width: 700px;
+			position:relative;
+			  -webkit-touch-callout: none;
+		    -webkit-user-select: none; 
+		     -khtml-user-select: none;
+		       -moz-user-select: none;
+		        -ms-user-select: none; 
+		            user-select: none; 
+		}
+		#nx-player > img{
+			width: 100%;
+		    position:absolute;
+	    	top:0;
+	    	bottom:0;
+	    	margin:auto;
+		}
+		#nx-player .nx-bar-control{
+			opacity: 0;
+			position: absolute;
+			width: 100%;
+			height: 46px;
+			border-top:1px solid #ff0000;
+			bottom: -46px;
+		}
+		#nx-player .nx-shadow{
+			opacity: 0;
+			position: absolute;
+			height: 25%;
+			width: 100%;
+			bottom: 0;
+			background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+			background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%); 
+			background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%); 
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#ff000000',GradientType=0 );
+		}
+		.nx-left{float:left;padding-left: 8px;}
+		.nx-right{float:right;padding-right: 8px;}
+		.nx-btn{padding-left: 7px;padding-right: 5px;padding-top: 11px;padding-bottom: 11px;opacity: 0.6;pointer-events:visible;}
+		.nx-btn:hover{opacity: 0.8;cursor: pointer;}
+		.nx-btn-active,.nx-btn-active:hover{opacity: 0.95;}
+		.nx-btn,.nx-btn img{width: 23px;height: 23px;display: inline-block;}
+		.nx-play{display: none;}
+		.nx-on-direct{font-size: 10px;color: #fff;font-family: arial;text-transform: uppercase;font-weight: 750;height: 46px;display: inline-block;top: -6px;position: relative;letter-spacing: -1px;}
+		.nx-on-direct b{color: #ff0000;font-size: 20px;width: 20px;position: relative;top: 3px;margin-right: 5px;margin-left: 10px;}
+		.nx-line-btn::before{content: ' ';border: 5px solid #fff;border-radius: 15px;background: #fff;position: absolute;padding: 4px;opacity: 0.3;top: -9px;left: -4px;}
+		.nx-line-btn {position: absolute;right: 0;top: 0;right: -5px;}
+		.nx-line-btn b{color: #fff;font-size: 25px;position: relative;top: -15px;}
+
+		.nx-bar-hzs {width: 50px;height: 46px;top: -5px;position: relative;bottom: 0;cursor: pointer;pointer-events:visible;}
+		.nx-bar-hzs div{display: inline-block;width: 0px;height: 100%;}
+		.nx-bar-hzs .nx-bar-listhzs{position: absolute;top: 50%;transform: translateY(-50%); }
+		.nx-bar-hzs .nx-bar-hz{pointer-events:visible;height: 11px;display: inline-block;width: 0px;margin-right: 1px;border: 1px solid rgba(255,255,255,0.6);-webkit-transition: all 0.15s; transition: all 0.15s;}
+		.nx-bar-hzs .nx-bar-hz.active{border: 1px solid #fff;}
+		.nx-bar-hzs .nx-bar-hz:hover{height: 16px;-webkit-transition: all 0.15s; transition: all 0.15s;}
+
+		iframe{width: 100%;height: 100%;border: 0;}	
+		.nx-play-screen{width: 13%;opacity: 0.8;verflow: auto;margin: auto;position: absolute;top: 0;left: 0;bottom: 0;right: 0;}
+		#nx-black-place:hover .nx-play-screen{opacity: 0.95;cursor: pointer;}
+		#nx-black-place:hover{cursor: pointer;}
+	</style>
+</head>
+<body>
+	<p>sdfsdf</p>
+<div id="nx-player">
+  	<div id="nx-loading-clappr-place" style="display: none;z-index: 1000;">
+  		<div class="nx-loading-clappr">
+	  		<div class="nx-loading-fix"><div class="nx-loading-p"></div></div>
+	  		<div class="nx-loading-fix"><div class="nx-loading-p"></div></div>
+	  		<div class="nx-loading-fix"><div class="nx-loading-p"></div></div>
+	  	</div>
+  	</div>
+  	<div id="nx-black-place" style="position: absolute;width: 100%;height: 100%;background: #000;display: block;">
+  		<img src="01-play.svg" class="nx-play-screen" style=""/>
+  	</div>
+
+  	<iframe src="video.html"></iframe>
+  	<div class="nx-shadow"></div>
+  	<div class="nx-bar-control">
+  		<div class="nx-line-btn"><b>&#8226;</b></div>
+  		<div class="nx-left">
+  			<span class="nx-btn nx-stop"><img src="03-stop.svg"></span>
+  			<span class="nx-btn nx-play"><img src="01-play.svg"></span>
+  			<span class="nx-on-direct"><b>&#8226;</b>En direct</span>
+  		</div>
+  		<div class="nx-right">
+  			<span class="nx-btn nx-hd nx-btn-active"><img src="08-hd.svg"></span>
+  			<span class="nx-btn nx-son"><img src="04-volume.svg"></span>
+  			<span class="nx-bar-hzs">
+  				<div>
+  					<span class="nx-bar-listhzs">
+  						<span class="nx-bar-hz active" data-vol="1"></span>
+  					</span>
+  				</div>
+  				<div>
+  					<span class="nx-bar-listhzs">
+  						<span class="nx-bar-hz active" data-vol="2"></span>
+  					</span>
+  				</div>
+  				<div>
+  					<span class="nx-bar-listhzs">
+  						<span class="nx-bar-hz active" data-vol="3"></span>
+  					</span>
+  				</div>
+  				<div>
+  					<span class="nx-bar-listhzs">
+  						<span class="nx-bar-hz active" data-vol="4"></span>
+  					</span>
+  				</div>
+  				<div>
+  					<span class="nx-bar-listhzs">
+  						<span class="nx-bar-hz" data-vol="5"></span>
+  					</span>
+  				</div>
+  				<div>
+  					<span class="nx-bar-listhzs">
+  						<span class="nx-bar-hz" data-vol="6"></span>
+  					</span>
+  				</div>
+  				<div>
+  					<span class="nx-bar-listhzs">
+  						<span class="nx-bar-hz" data-vol="7"></span>
+  					</span>
+  				</div>
+  				<div>
+  					<span class="nx-bar-listhzs">
+  						<span class="nx-bar-hz" data-vol="8"></span>
+  					</span>
+  				</div>
+  				<div>
+  					<span class="nx-bar-listhzs">
+  						<span class="nx-bar-hz" data-vol="9"></span>
+  					</span>
+  				</div>
+  				<div>
+  					<span class="nx-bar-listhzs">
+  						<span class="nx-bar-hz" data-vol="10"></span>
+  					</span>
+  				</div>
+  			</span>
+  			<span class="nx-btn nx-fullscrean"><img src="06-expand.svg"></span>
+  		</div>
+  	</div>
+  </div>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script>
+	$( document ).ready(function() {
+
+	    $('.nx-bar-hz').click(function(){
+	    	for (var i = 1; i <= 10; i++) 
+	    		$('.nx-bar-hz[data-vol='+i+']').removeClass('active');
+
+	    	for (var i = 1; i <= parseInt($(this).data('vol')); i++) 
+	    		$('.nx-bar-hz[data-vol='+i+']').addClass('active');
+	    });
+
+	    $( "#nx-player" ).hover(function() {
+	    	if($('#nx-black-place').css('display') == "none")
+	    	{
+		    	$('#nx-player .nx-shadow').animate({opacity: '1'},{duration: 250});
+		    	$('#nx-player .nx-bar-control').animate({opacity: '1',bottom: '0px'},{duration: 200});	    		
+	    	}
+	    	//.css('opacity','1');
+	    	//$('#nx-player .nx-bar-control').css('bottom','0px');
+		}, function() {
+			if($('#nx-black-place').css('display') == "none")
+			{
+				$('#nx-player .nx-shadow').animate({opacity: '0'},{duration: 250});
+				$('#nx-player .nx-bar-control').animate({opacity: '0',bottom: '-46px'},{duration: 200});				
+			}
+
+	    	//$('#nx-player .nx-bar-control').css('opacity','0');
+	    	//$('#nx-player .nx-bar-control').css('bottom','46px');
+		});
+
+	    var stopAnimation = false;
+	    var isAnimation = false;
+	    $('#nx-black-place').click(function(){
+	    	$('#nx-black-place').css('display','none');
+	    	$('#nx-loading-clappr-place').css('background','black');
+	    	$('#nx-loading-clappr-place').css('display','block');
+	    	stopAnimation = false; 
+	    	nxRunAnimationCircle();
+	    	$(this).delay(1000).queue(function(next) {
+	          	$('#nx-black-place').css('display','none');
+	          	$('#nx-loading-clappr-place').css('background','transparent');
+	          	$('#nx-loading-clappr-place').css('display','none');
+		    	$('#nx-player .nx-shadow').animate({opacity: '1'},{duration: 250});
+		    	$('#nx-player .nx-bar-control').animate({opacity: '1',bottom: '0px'},{duration: 200});	 
+		    	stopAnimation = true;   	
+	      	});
+	    	
+	    });
+
+	    $('.nx-stop').click(function(){
+	    	if(isAnimation == false){
+	    		stopAnimation = false; 
+	    		nxRunAnimationCircle();
+	    	}
+	    });
+
+		function nxRunAnimationCircle()
+		{
+			if(!stopAnimation){
+				isAnimation = true;
+				$($('.nx-loading-p')[0]).delay(0).animate({width: '0px',height: '0px',margin:'11px'},350);
+				$($('.nx-loading-p')[0]).delay(50).animate({width: '22px',height: '22px',margin:'0px'},350);
+				$($('.nx-loading-p')[1]).delay(50).animate({width: '0px',height: '0px',margin:'11px'},350);
+				$($('.nx-loading-p')[1]).delay(100).animate({width: '22px',height: '22px',margin:'0px'},350);
+				$($('.nx-loading-p')[2]).delay(100).animate({width: '0px',height: '0px',margin:'11px'},350);
+				$($('.nx-loading-p')[2]).delay(150).animate({width: '22px',height: '22px',margin:'0px'},350,function(){isAnimation = false;nxRunAnimationCircle();});				
+			}
+		}
+
+		$('.nx-fullscrean').on('click', function(){
+		  // if already full screen; exit
+		  // else go fullscreen
+		  if (
+		    document.fullscreenElement ||
+		    document.webkitFullscreenElement ||
+		    document.mozFullScreenElement ||
+		    document.msFullscreenElement
+		  ) {
+		    if (document.exitFullscreen) {
+		      document.exitFullscreen();
+		    } else if (document.mozCancelFullScreen) {
+		      document.mozCancelFullScreen();
+		    } else if (document.webkitExitFullscreen) {
+		      document.webkitExitFullscreen();
+		    } else if (document.msExitFullscreen) {
+		      document.msExitFullscreen();
+		    }
+		  } else {
+		    element = $('#nx-player').get(0);
+		    if (element.requestFullscreen) {
+		      element.requestFullscreen();
+		    } else if (element.mozRequestFullScreen) {
+		      element.mozRequestFullScreen();
+		    } else if (element.webkitRequestFullscreen) {
+		      element.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+		    } else if (element.msRequestFullscreen) {
+		      element.msRequestFullscreen();
+		    }
+		  }
+		});
+	});
+
+	//nx-bar-hzs
+  </script>
+</body>
+</html>
